@@ -4,7 +4,7 @@ import { api } from "@/services/api";
 const Details = async({searchParams})=> {
   const {slug } = searchParams ;
   const data = await api.posts.read({slug:slug});
-
+  //put your code here
       return (
        <section>
         {(data?.feature_image|| data?.feature_image_alt ||data?.title) && 
