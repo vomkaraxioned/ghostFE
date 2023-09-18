@@ -3,7 +3,12 @@ import { api } from "@/services/api";
 
 const Details = async({searchParams})=> {
   const {slug } = searchParams ;
-  const data = await api.posts.read({slug:slug});
+  let data ;
+  try{
+    data = await api.posts.read({slug:slug})
+  }catch(e){
+    data = []
+  }
   //put your code here
       return (
        <section>

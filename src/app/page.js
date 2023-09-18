@@ -3,8 +3,12 @@ import { PostCard } from '@/components/post-card';
 
 
 export default async function Home() {
-  const posts = await api.posts.browse();
-
+  let posts;
+  try{
+    posts = await api.posts.browse()
+  }catch(e){
+    posts = []
+  }
   return (
      <section>
      <h2 className="text-center mb-4 text-2xl font-bold">Posts</h2>
